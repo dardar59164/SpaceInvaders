@@ -1,5 +1,4 @@
 ﻿using ConsoleEngine;
-using ConsoleEngine.Physics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
-    internal class Program
+    internal class SIGame : GameBase
     {
-        static void Main(string[] args)
+        public SIGame(int width, int height) : base(width, height)
         {
-            SIGame game = new SIGame(40, 20);
-            game.Run();
+            Framerate = 60;
         }
     }
 }
