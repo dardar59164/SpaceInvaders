@@ -34,13 +34,13 @@ namespace SpaceInvaders
             // shooting
             if (InputHandler.Key == ConsoleKey.Spacebar)
             {
-                LaserObject PlayerBullet = new LaserObject(game, new Position(Position.x,Position.y - 1));
+                LaserObject PlayerBullet = new LaserObject(game, new Position(Position.x,Position.y));
             }
         }
 
         public override void Display(ref char[,] graphics)
         {
-            /* Player: dTb */
+            /* Player Shape: dTb */
             graphics[Position.x, Position.y] = 'T';
             graphics[Position.x - 1, Position.y] = 'd';
             graphics[Position.x + 1, Position.y] = 'b';

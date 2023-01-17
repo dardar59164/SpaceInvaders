@@ -94,7 +94,7 @@ namespace ConsoleEngine
         /// </summary>
         protected virtual void Update()
         {
-            foreach (GameObject gameObject  in _gameObjects)
+            foreach (GameObject gameObject in _gameObjects)
             {
                 if (gameObject.IsActive)
                 {

@@ -21,12 +21,12 @@ namespace SpaceInvaders
 
         public override void Update(GameBase game)
         {
-            if (IsAlive && GameBase.FrameCount % 30 == 0)
+            if (IsAlive && GameBase.FrameCount % 60 == 0)
             {
                 //Move Alien
                 Move();
 
-                if (Position.y >= 19)
+                if (Position.y >= GameBase.Height - 1)
                 {
                     End();
                 }
@@ -37,7 +37,7 @@ namespace SpaceInvaders
         {
             if (IsAlive)
             {
-                graphics[Position.x, Position.y] = 'A';
+                graphics[Position.x, Position.y] = 'V';
             }
         }
 
