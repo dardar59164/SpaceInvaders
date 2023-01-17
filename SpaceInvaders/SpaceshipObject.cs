@@ -22,27 +22,28 @@ namespace SpaceInvaders
 
         public override void Update(GameBase game)
         {
-            // Movement handling
+            // Move Player
             if ((InputHandler.Key == ConsoleKey.LeftArrow) && Position.x - 1 > 0)
             {
-                Move(Position.x - 1, Position.y);
+                Move(-1, 0);
             }
-            if ((InputHandler.Key == ConsoleKey.RightArrow) && Position.x + 1 < 40)
+            if ((InputHandler.Key == ConsoleKey.RightArrow) && Position.x + 1 < GameBase.Width - 1)
             {
-                Move(Position.x + 1, Position.y);
+                Move(1, 0);
             }
-            // shooting handling
+            // shooting
             if (InputHandler.Key == ConsoleKey.Spacebar)
             {
-                new LaserObject(game, new Position(Position.x,Position.y - 1));
+                LaserObject PlayerBullet = new LaserObject(game, new Position(Position.x,Position.y - 1));
             }
         }
 
         public override void Display(ref char[,] graphics)
         {
-            graphics[Position.x, Position.y] = '^';
-            graphics[Position.x - 1, Position.y] = '<';
-            graphics[Position.x + 1, Position.y] = '>';
+            /* Player: dTb */
+            graphics[Position.x, Position.y] = 'T';
+            graphics[Position.x - 1, Position.y] = 'd';
+            graphics[Position.x + 1, Position.y] = 'b';
         }
 
         public void OnCollision(GameObject other)

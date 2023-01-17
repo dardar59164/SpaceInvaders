@@ -17,7 +17,7 @@ namespace SpaceInvaders
         public LaserObject(GameBase game, Position position) : base(game)
         {
             IsAlive = true;
-            PhysicsHandler.SetPositions(this, Position);
+            PhysicsHandler.SetPosition(this, Position);
         }
 
         public override void Update(GameBase game)
@@ -25,11 +25,9 @@ namespace SpaceInvaders
             if (IsAlive)
             {
                 //Move Laser
-                PhysicsHandler.RemovePosition(this, Position);
-                Position = new Position(Position.x, Position.y - 1);
-                PhysicsHandler.SetPosition(this, Position);
+                Shoot(Position.x, Position.y);
 
-                if (Position.y < 0)
+                if (Position.y <= 0)
                 {
                     IsAlive = false;
                     PhysicsHandler.RemovePosition(this, Position);
@@ -41,23 +39,26 @@ namespace SpaceInvaders
         {
             if (IsAlive)
             {
-                for (int i = 0; i < Height; i++)
-                {
-                    for (int j = 0; j < Width; j++)
-                    {
-                        graphics[Position.x + j, Position.y + i] = '|';
-                    }
-                }
+                graphics[Position.x, Position.y] = '|';
             }
         }
         public void OnCollision(GameObject other)
         {
             if (other is AlienObject)
             {
-                PhysicsHandler.RemovePosition(this,Position);
-                other.IsActive = false;
                 IsAlive = false;
                 PhysicsHandler.RemovePosition(this, Position);
+            }
+        }
+
+        //Move Laser from Player
+        public virtual void Shoot(int x, int y)
+        {
+            if (IsAlive)
+            {
+                PhysicsHandler.RemovePosition(this, Position);
+                Position = new Position(x, Position.y - 1);
+                PhysicsHandler.SetPosition(this, Position);
             }
         }
     }
