@@ -27,7 +27,7 @@ namespace SpaceInvaders
                 //Move Laser
                 Shoot(Position.x, Position.y);
 
-                if (Position.y <= 0)
+                if (Position.y <= 0 || Position.y >= GameBase.Height)
                 {
                     IsAlive = false;
                     PhysicsHandler.RemovePosition(this, Position);

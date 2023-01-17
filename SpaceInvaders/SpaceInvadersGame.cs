@@ -17,10 +17,13 @@ namespace SpaceInvaders
         {
             Framerate = 60;
             _spaceship = new SpaceshipObject(this,new Position(Width/2,Height/2));
-            _aliens = new AlienObject[15];
+            _aliens = new AlienObject[60];
+            int x = 0;
+            int y = 0;
             for (int i = 0; i < _aliens.Length; i++)
             {
-                _aliens[i] = new AlienObject(this,new Position(1 + i,0));
+                _aliens[i] = new AlienObject(this,new Position(x,y));
+                if (x < Width - 1) {x++;} else {x = 0; y++;}
             }
         }
     }
