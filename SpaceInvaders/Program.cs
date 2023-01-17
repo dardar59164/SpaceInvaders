@@ -12,7 +12,7 @@ namespace SpaceInvaders
     {
         static void Main(string[] args)
         {
-            SIGame game = new SIGame(40, 20);
+            SpaceInvadersGame game = new SpaceInvadersGame();
             game.Run();
         }
     }
