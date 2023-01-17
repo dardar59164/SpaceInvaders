@@ -1,4 +1,4 @@
-﻿namespace SnakeGameConsole
+﻿namespace SpaceInvaders
 {
     public enum Direction
     {
@@ -16,6 +16,7 @@
             {
                 case ConsoleKey.LeftArrow:
                 case ConsoleKey.Q:
+                case ConsoleKey.A:
                     dir = Direction.Left;
                     break;
                 case ConsoleKey.RightArrow:
