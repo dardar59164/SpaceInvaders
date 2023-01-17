@@ -12,27 +12,24 @@ namespace SpaceInvaders
     {
         public Position Position { get; private set; }
         public bool IsAlive { get; set; }
-        public AlienObject(GameBase game) : base(game)
+        public AlienObject(GameBase game, Position position) : base(game)
         {
             IsAlive = true;
-            Position = new Position(0,0);
-            PhysicsHandler.SetPositions(this, Position);
+            Position = position;
+            PhysicsHandler.SetPosition(this, Position);
         }
 
         public override void Update(GameBase game)
         {
-            if (IsAlive)
+            if (IsAlive && GameBase.FrameCount % 30 == 0)
             {
                 //Move Alien
-                PhysicsHandler.RemovePosition(this, Position);
-                Position = new Position(Position.x, Position.y + 1);
-                PhysicsHandler.SetPosition(this, Position);
+                Move();
 
-                if (Position.y > 19)
+                if (Position.y >= 19)
                 {
                     End();
                 }
-                Thread.Sleep(1000);
             }
         }
 
@@ -40,13 +37,7 @@ namespace SpaceInvaders
         {
             if (IsAlive)
             {
-                for (int i = 0; i < 20; i++)
-                {
-                    for (int j = 0; j < 40; j++)
-                    {
-                        graphics[Position.x + j, Position.y + i] = 'A';
-                    }
-                }
+                graphics[Position.x, Position.y] = 'A';
             }
         }
 
@@ -66,9 +57,19 @@ namespace SpaceInvaders
 
         public void Move()
         {
-            PhysicsHandler.RemovePosition(this, Position);
-            Position = new Position(Position.x - 1, Position.y);
-            PhysicsHandler.SetPosition(this, Position);
+            if (IsAlive && Position.x >= GameBase.Width - 1)
+            {
+                PhysicsHandler.RemovePosition(this, Position);
+                Position = new Position(1, Position.y + 1);
+                PhysicsHandler.SetPosition(this, Position);
+            }
+            else
+            {
+                PhysicsHandler.RemovePosition(this, Position);
+                Position = new Position(Position.x + 1, Position.y);
+                PhysicsHandler.SetPosition(this, Position);
+            }
+            
         }
     }
 }

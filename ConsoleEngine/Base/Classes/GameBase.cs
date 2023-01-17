@@ -12,7 +12,7 @@ namespace ConsoleEngine
         /// <summary>
         /// Définit la fréquence du jeu en image par seconde. Peut être écrasé
         /// </summary>
-        protected int Framerate = 60;
+        public int Framerate { get; protected set; } = 60;
 
         /// <summary>
         /// Indique si le jeu est en cours, ou s'il doit s'arrêter
@@ -94,7 +94,7 @@ namespace ConsoleEngine
         /// </summary>
         protected virtual void Update()
         {
-            foreach (GameObject gameObject in _gameObjects)
+            foreach (GameObject gameObject  in _gameObjects)
             {
                 if (gameObject.IsActive)
                 {
