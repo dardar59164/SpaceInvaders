@@ -18,6 +18,7 @@ namespace SpaceInvaders
             Framerate = 60;
             _spaceship = new SpaceshipObject(this,new Position(Width/2,Height-1));
             _aliens = new AlienObject[60];
+            _lasers= new LaserObject[30];
             int x = 0;
             int y = 0;
             for (int i = 0; i < _aliens.Length; i++)

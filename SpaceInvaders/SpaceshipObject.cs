@@ -13,11 +13,14 @@ namespace SpaceInvaders
     {
         public int Lives { get; set; } = 3;
         public Position Position { get; set; }
+        public LaserObject PlayerLaser;
 
         public SpaceshipObject(GameBase game, Position position) : base(game)
         {
             Position = position;
             PhysicsHandler.SetPosition(this, Position);
+
+            PlayerLaser = new LaserObject(game, Position);
         }
 
         public override void Update(GameBase game)
@@ -34,7 +37,7 @@ namespace SpaceInvaders
             // shooting
             if (InputHandler.Key == ConsoleKey.Spacebar)
             {
-                LaserObject PlayerBullet = new LaserObject(game, new Position(Position.x,Position.y));
+                PlayerLaser.Shoot(Position.x,Position.y);
             }
         }
 
