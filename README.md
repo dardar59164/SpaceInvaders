@@ -2,6 +2,7 @@
 Modifications & avancements du projet SpaceInvaders
 
 # 18/01/2023
+## WORK IN PROGRESS
 
 # 17/01/2023
 ## ADDED:
