@@ -2,7 +2,10 @@
 Modifications & avancements du projet SpaceInvaders
 
 # 18/01/2023
-### WORK IN PROGRESS
+## FIXED
+- Problème de compilation
+## CHANGED
+-Génération d'objet dans la méthode Update()
 
 # 17/01/2023
 ## ADDED:
