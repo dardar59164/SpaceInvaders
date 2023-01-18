@@ -5,7 +5,7 @@ Modifications & avancements du projet SpaceInvaders
 ## FIXED
 - Problème de compilation
 ## CHANGED
--Génération d'objet dans la méthode Update()
+- Génération d'objet dans la méthode Update()
 
 # 17/01/2023
 ## ADDED:
