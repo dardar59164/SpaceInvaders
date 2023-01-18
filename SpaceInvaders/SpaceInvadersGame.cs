@@ -16,7 +16,7 @@ namespace SpaceInvaders
         public SpaceInvadersGame() : base(40, 20)
         {
             Framerate = 60;
-            _spaceship = new SpaceshipObject(this,new Position(Width/2,Height/2));
+            _spaceship = new SpaceshipObject(this,new Position(Width/2,Height-1));
             _aliens = new AlienObject[60];
             int x = 0;
             int y = 0;
